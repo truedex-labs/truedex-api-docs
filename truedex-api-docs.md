@@ -10,6 +10,7 @@
     * [当前委托](#2.2.2)
     * [历史委托](#2.2.3)
     * [成交详情](#2.2.4)
+    * [订单状态](#2.2.5)
   * [交易相关](#2.3)
     * [批量买入](#2.3.1)
     * [批量卖出](#2.3.2)
@@ -109,22 +110,23 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "data": {
         "list":[
                 {
-                    "t":"eth.usdt",  // tradeCode             币对
-                    "qs":"USDT,8",   // quoteSymbol           行情币
-                    "bs":"ETH,8",    // baseSymbol            基础币
-                    "ldp":"0.4",     // latestDealPrice       最新成交价 
-                    "ldqv":"null",   // latestDealQuantValue  最新成交量     
-                    "ldps":"USDT,6", // latestDealPriceSymbol 最新成交价符号      
-                    "h":"0.02",      // highPrice             最高价
-                    "l":"0.03",      // lowPrice              最低价
-                    "c":"0.01",      // closePrice            收盘价（最新成交价）
-                    "o":"0.03",      // openPrice             开盘价
-                    "dc":"1",        // dealCount             成交数量
-                    "cr":"+0.1",     // changeRate            涨跌幅
-                    "fbq":"0.03",    // matchedBaseQuant       成交额  
-                    "fqq":"0.2",     // matchedQuoteQuant      成交量
-                    "tbq":"0.01",    // totalBaseQuant        总挂单量
-                    "tqq":"0.2"      // totalQuoteQuant       总挂单额                 ]
+                    "t":"eth.usdt",  // 币对
+                    "qs":"USDT,8",   // 行情币
+                    "bs":"ETH,8",    // 基础币
+                    "ldp":"0.4",     // 最新成交价 
+                    "ldqv":"null",   // 最新成交量     
+                    "ldps":"USDT,6", // 最新成交价符号      
+                    "h":"0.02",      // 最高价
+                    "l":"0.03",      // 最低价
+                    "c":"0.01",      // 收盘价（最新成交价）
+                    "o":"0.03",      // 开盘价
+                    "dc":"1",        // 成交数量
+                    "cr":"+0.1",     // 涨跌幅
+                    "fbq":"0.03",    // 成交额  
+                    "fqq":"0.2",     // 成交量
+                    "tbq":"0.01",    // 总挂单量
+                    "tqq":"0.2"      // 总挂单额
+                ]
             },
         "qs":"USDT,6",
         "rt":1682408615
@@ -151,19 +153,19 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "data": {
         "list":[
                 [
-                "3913258",      //记录id  "id",
-                "1685881920",   //生效时间  "effectTime",
-                "btc.usdt",     //币对    "tradeCode",
-                "47",           //成交笔数  "dealQuoteCount",
-                "603647.86",    //成交额   "dealQuoteQuant",
-                "47",           //成交笔数  "dealBaseCount",
-                "22.22",        //成交量   "dealBaseQuant",
-                "1min",         //period    "periodCode",
-                "27166.84",     //收盘价   "closePrice",
-                "27167.09",     //开盘价   "openPrice",
-                "27167.08",     //最高价   "highPrice",
-                "27166.83",     //最低价   "lowPrice",
-                "1685882003",   //创建时间  "createdAt"
+                "3913258",      //记录id
+                "1685881920",   //生效时间
+                "btc.usdt",     //币对
+                "47",           //成交笔数
+                "603647.86",    //成交额
+                "47",           //成交笔数
+                "22.22",        //成交量
+                "1min",         //period
+                "27166.84",     //收盘价
+                "27167.09",     //开盘价
+                "27167.08",     //最高价
+                "27166.83",     //最低价
+                "1685882003",   //创建时间
                 ]
             ],        
         "start": 1682325720,
@@ -196,14 +198,14 @@ apisecret : 4598092df55fe84a4166d6828043621f
         "lastUpdateId": null,
         "sellList": [
             [
-                "1500",   //priceValue 价格
-                "0.5"     //baseQuantValue 数量
+                "1500",   // 价格
+                "0.5"     // 数量
             ]
         ],
         "buyList": [
             [
-                "1000",   //priceValue 价格
-                "0.2"     //baseQuantValue 数量
+                "1000",   // 价格
+                "0.2"     // 数量
             ]
         ]
     }
@@ -231,13 +233,13 @@ apisecret : 4598092df55fe84a4166d6828043621f
         "tradeCode": "eth.usdt",
         "list": [
             {
-                "id":"1",          //id  成交id.
-                "dpv":"100",       //dealPriceValue.  成交价
-                "dps":"USDT,6",    //dealPriceSymbol  成交价符号
-                "dt":"1681871184", //dealTime         成交时间
-                "dv":"0.01",       //dealValue        成交量     
-                "ds":"ETH,8",      //dealSymbol.      成交币符号
-                "os":"sell"        //orderSide.       maker方向
+                "id":"1",          //成交id
+                "dpv":"100",       //成交价
+                "dps":"USDT,6",    //成交价符号
+                "dt":"1681871184", //成交时间
+                "dv":"0.01",       //成交量     
+                "ds":"ETH,8",      //基础币符号
+                "os":"sell"        //maker方向
             }
         ]
     }
@@ -277,7 +279,6 @@ apisecret : 4598092df55fe84a4166d6828043621f
 }
 ```
 
-
 <h3 id="2.2.2">2.2.2 当前委托</h3>
 
 #### 请求地址 : POST /mm/dex/user/openOrders
@@ -298,28 +299,28 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "data": {
         "list": [
             {                          
-            "id":"130008003",           //记录ID  id
-            "oi":"103250553",            //订单ID  orderId
-            "ei":"20230604010898690",   //extid extId
-            "t":"eth.usdt",             //币对    tradeCode
-            "th":"681CBA1128F713FA6AFDB89626656DE869E34DFB85CECE7B828DC5BD5E679746",   //交易hash    txHash
-            "bn":3492093",              //区块编号  blockNum
-            "on":"dex.user1",           //用户名   owner
-            "pv":"1906.51",             //挂单价格  priceValue
-            "ps":"USDT,6",              //基础币   priceSymbol
-            "lbq":"0.29",               //挂单数量  limitBaseQuant
-            "lbs":"ETH,8",              //挂单币   limtBaseSymbol
-            "dqq":"0",                  //成交量   dealQuoteQuant
-            "dqs":"USDT,6",             //成交货币  dealQuoteSymbol
-            "mqq":"0",                  //已成交   matchedQuoteQuant
-            "mqs":"ETH,8",              //已成交币  matchedQuoteSymbol
-            "mbq":"0",                  //  matchedBaseQuant
-            "apv":"0",                  //平均成交价 avgPriceValue
-            "mbs":"ETH,8",              //  matchedBaseSymbol
-            "s":"sell",                 //方向    orderSide
-            "ot":"limit",               //订单类型  orderType
-            "ss":null,                  //状态    status
-            "ca":"1685884122"          //创建时间  createdAt 
+            "id":"130008003",           //记录ID
+            "oi":"103250553",           //订单ID
+            "ei":"20230604010898690",   //extid
+            "t":"eth.usdt",             //币对
+            "th":"681CBA1128F713FA6AFDB89626656DE869E34DFB85CECE7B828DC5BD5E679746",   //交易hash
+            "bn":3492093",              //区块编号
+            "on":"dex.user1",           //用户名
+            "pv":"1906.51",             //挂单价格
+            "ps":"USDT,6",              //基础币
+            "lbq":"0.29",               //挂单数量
+            "lbs":"ETH,8",              //挂单币
+            "dqq":"0",                  //成交量
+            "dqs":"USDT,6",             //成交货币
+            "mqq":"0",                  //已成交额
+            "mqs":"ETH,8",              //已成交币
+            "mbq":"0",                  //已成交量
+            "apv":"0",                  //平均成交价 
+            "mbs":"ETH,8",              //  
+            "s":"sell",                 //方向   
+            "ot":"limit",               //订单类型
+            "ss":null,                  //订单状态(pending(已挂单)、partial(部分成交)、cancel(已取消: 清注意如果mqq(已成交大于0, 则订单为部分成交取消))、success(完全成交))
+            "ca":"1685884122"           //创建时间 
             }
         ]
     }
@@ -346,28 +347,28 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "data": {
         "list": [
             {                          
-            "id":"130008003",           //记录ID  id
-            "oi":"103250553",            //订单ID  orderId
-            "ei":"20230604010898690",   //extid extId
-            "t":"eth.usdt",             //币对    tradeCode
-            "th":"681CBA1128F713FA6AFDB89626656DE869E34DFB85CECE7B828DC5BD5E679746",   //交易hash    txHash
-            "bn":3492093",              //区块编号  blockNum
-            "on":"dex.user1",           //用户名   owner
-            "pv":"1906.51",             //挂单价格  priceValue
-            "ps":"USDT,6",              //基础币   priceSymbol
-            "lbq":"0.29",               //挂单数量  limitBaseQuant
-            "lbs":"ETH,8",              //挂单币   limtBaseSymbol
-            "dqq":"0",                  //成交量   dealQuoteQuant
-            "dqs":"USDT,6",             //成交货币  dealQuoteSymbol
-            "mqq":"0",                  //已成交   matchedQuoteQuant
-            "mqs":"ETH,8",              //已成交币  matchedQuoteSymbol
-            "mbq":"0",                  //  matchedBaseQuant
-            "apv":"0",                  //平均成交价 avgPriceValue
-            "mbs":"ETH,8",              //  matchedBaseSymbol
-            "s":"sell",                 //方向    orderSide
-            "ot":"limit",               //订单类型  orderType
-            "ss":null,                  //状态    status
-            "ca":"1685884122"          //创建时间  createdAt 
+            "id":"130008003",           //记录ID  
+            "oi":"103250553",           //订单ID  
+            "ei":"20230604010898690",   //extId
+            "t":"eth.usdt",             //币对   
+            "th":"681CBA1128F713FA6AFDB89626656DE869E34DFB85CECE7B828DC5BD5E679746",   //交易hash
+            "bn":3492093",              //区块编号
+            "on":"dex.user1",           //用户名
+            "pv":"1906.51",             //挂单价格
+            "ps":"USDT,6",              //基础币
+            "lbq":"0.29",               //挂单数量
+            "lbs":"ETH,8",              //挂单币
+            "dqq":"0",                  //成交量
+            "dqs":"USDT,6",             //成交货币
+            "mqq":"0",                  //已成交
+            "mqs":"ETH,8",              //已成交币
+            "mbq":"0",                  //已成交量
+            "apv":"0",                  //平均成交价
+            "mbs":"ETH,8",              //币对信息
+            "s":"sell",                 //方向(buy/sell)
+            "ot":"limit",               //订单类型(limit/market)
+            "ss": cancel,               //订单状态(pending(已挂单)、partial(部分成交)、cancel(已取消: 清注意如果mqq(已成交大于0, 则订单为部分成交取消))、success(完全成交))
+            "ca":"1685884122"           //创建时间
             }
         ]
     }
@@ -376,7 +377,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
 
 <h3 id="2.2.4">2.2.4 成交明细</h3>
 
-#### 请求地址 : POST /mm/dex/user/orderDetail
+#### 请求地址 : POST /mm/dex/user/dealDetail
 #### 请求参数
 ```
 {
@@ -395,28 +396,72 @@ apisecret : 4598092df55fe84a4166d6828043621f
                 "id": 1917678,
                 "boi": 105971590,      //buyOrderId
                 "soi": 105971161,      //sellOrderId
-                "t": "eth.usdt",       //tradePair ： 币对
+                "t": "eth.usdt",       //币对
                 "th": "1A84959E7529E9F88FBAE7AD879A61AD22FC5F7B920FBEF91A9CF02ADF2EC160",  //txHash ：交易hash
-                "bn": 4651547,         //blockNum ：  区块高度
+                "bn": 4651547,         //区块高度
                 "be": "v1x.sell1",     //buyer
                 "se": "v1x.sell1",     //seller
-                "pv": "0.589841",      //priceValue : 成交价
-                "ps": "USDT,6",        //priceSymbol: 价格币
-                "mqq": "105.394521",   //matchedQuoteQuant : 成交额
-                "mqs": "USDT,6",       //matchedQuoteQuant : 成交额币符号
-                "mbq": "178.682935",   //matchedBaseQuant:成交量
-                "mbs": "FFT,8",        //matchedBaseSymbol:成交量币符号
-                "ts": "buy",           //tackerSide : taker 方向
-                "ca": 1687084838,      //createdAt : 创建时间
-                "sfq": "1.053945",     //sellFeeQuant : 卖方手续费
-                "sfs": "USDT,6",       //sellFeeSymbol : 卖方手续费币符号
-                "bfq": "1.786829",     //buyFeeQunat : 买方手续费
-                "bfs": "FFT,8"         //buyFeeSymbol : 买方手续费币符号
+                "pv": "0.589841",      //成交价
+                "ps": "USDT,6",        //价格币
+                "mqq": "105.394521",   //成交额
+                "mqs": "USDT,6",       //成交额币符号
+                "mbq": "178.682935",   //成交量
+                "mbs": "FFT,8",        //成交量币符号
+                "ts": "buy",           //taker 方向
+                "ca": 1687084838,      //创建时间
+                "sfq": "1.053945",     //卖方手续费
+                "sfs": "USDT,6",       //卖方手续费币符号
+                "bfq": "1.786829",     //买方手续费
+                "bfs": "FFT,8"         //买方手续费币符号
             }
         ]
     }
 }
 ```
+
+<h3 id="2.2.5">2.2.5 订单状态</h3>
+
+#### 请求地址 : POST /mm/dex/user/orderDetail
+#### 请求参数
+```
+{
+    "orderId": 10000000
+}
+```
+
+#### 响应参数
+```
+{
+    "code": 200,
+    "msg": "success",
+    "data": {
+            "id":"130008003",           //记录ID
+            "oi":"103250553",           //订单ID
+            "ei":"20230604010898690",   //extid
+            "t":"eth.usdt",             //币对
+            "th":"681CBA1128F713FA6AFDB89626656DE869E34DFB85CECE7B828DC5BD5E679746",   //交易hash
+            "bn":3492093",              //区块编号
+            "on":"dex.user1",           //用户名
+            "pv":"1906.51",             //挂单价格
+            "ps":"USDT,6",              //基础币
+            "lbq":"0.29",               //挂单数量
+            "lbs":"ETH,8",              //挂单币
+            "dqq":"0",                  //成交量
+            "dqs":"USDT,6",             //成交货币
+            "mqq":"0",                  //已成交额
+            "mqs":"ETH,8",              //已成交币
+            "mbq":"0",                  //已成交量
+            "apv":"0",                  //平均成交价 
+            "mbs":"ETH,8",              //  
+            "s":"sell",                 //方向   
+            "ot":"limit",               //订单类型
+            "ss":null,                  //订单状态(pending(已挂单)、partial(部分成交)、cancel(已取消: 清注意如果mqq(已成交大于0, 则订单为部分成交取消))、success(完全成交))
+            "ca":"1685884122"           //创建时间 
+        ]
+    }
+}
+```
+
 <h2 id="2.3">2.3 交易相关</h2>
 
 <h3 id="2.3.1">2.3.1 批量买入</h3>
@@ -433,9 +478,9 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "max_count": 10,                     // 最大数量
     "param": [
         {
-        "ext_id": 2,                     // 自定义id
-        "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
-        "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
+          "ext_id": 2,                     // 自定义id
+          "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
+          "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
         }
     ]  
 }
@@ -460,9 +505,9 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "max_count": 10,                     // 最大数量
     "param": [
         {
-        "ext_id": 2,                     // 自定义id
-        "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
-        "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
+          "ext_id": 2,                     // 自定义id
+          "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
+          "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
         }
     ]  
 }
@@ -567,24 +612,23 @@ apisecret : 4598092df55fe84a4166d6828043621f
 ### 最新成交数据(ticker)
 ```
 { 
-    "type":"ticker",          //Ticker 类型消息
+    "type":"ticker",          //类型消息
     "body":{
-        "t":"fft.usdt",       //tradeCode        币对
-        "ldp24":"0.585951",   //lastDealPrice24h 24小时成交价
-        "ldi":1952238,        //lastDealId      最新成交dealId
-        "ldp":"0.610405",     //lastDealPrice   最新成交价
-        "ldq":"210.92024",    //lastDealQuant   最新成交量
-        "o":"0.585951",       //openPrice       开盘价
-        "h":"0.633815",       //hignPrice       开盘价
-        "l":"0.570395",       //lowPrice        开盘价
-        "tc24":"0",           //totalCount24    成交笔数
+        "t":"fft.usdt",       //币对
+        "ldp24":"0.585951",   //24小时前成交价
+        "ldi":1952238,        //最新成交dealId
+        "ldp":"0.610405",     //最新成交价
+        "ldq":"210.92024",    //最新成交量
+        "o":"0.585951",       //开盘价
+        "h":"0.633815",       //开盘价
+        "l":"0.570395",       //开盘价
+        "tc24":"0",           //成交笔数
         "dc":36270,         
-        "ts":1687146412,      //timestampe      时间戳
-        "tbq":"299732.7847",  //totalBaseQuant  成交量
-        "tqq":"185696.582146",//totalQUoteQuant 成交额
-        "tss":"buy",          //takerSide       成交方向
-        "cr":"3.4600",        //changeRate      涨跌幅
-        "lu":137307          //lastUpdateId.   最后一次更新id
+        "ts":1687146412,      //时间戳
+        "tbq":"299732.7847",  //成交量
+        "tqq":"185696.582146",//成交额
+        "tss":"buy",          //成交方向
+        "cr":"3.4600"         //涨跌幅
     }
 }
 ```
@@ -598,14 +642,14 @@ apisecret : 4598092df55fe84a4166d6828043621f
         "lastUpdateId":null,        
         "sellList": [
             [
-                "1500", //priceValue 价格
-                "0.5" //baseQuantValue 数量
+                "1500", // 价格
+                "0.5"   // 数量
             ]
         ],
         "buyList": [
             [
-                "1000", //priceValue 价格
-                "0.2" //baseQuantValue 数量
+                "1000", // 价格
+                "0.2"   // 数量
             ]
         ],
          "timestamp":1685628487
@@ -618,19 +662,19 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "type":"kline",
     "body":[        
-        "3913258",      //记录id "id",
-        "1685881920",   //生效时间 "effectTime",
-        "btc.usdt",     //币对 "tradeCode",
-        "47",           //成交笔数 "dealQuoteCount",
-        "603647.86",    //成交额 "dealQuoteQuant",
-        "47",           //成交笔数 "dealBaseCount",
-        "22.22",        //成交量 "dealBaseQuant",
-        "1min",         //period "periodCode",
-        "27166.84",     //收盘价 "closePrice",
-        "27167.09",     //开盘价 "openPrice",
-        "27167.08",     //最高价 "highPrice",
-        "27166.83",     //最低价 "lowPrice",
-        "1685882003",   //创建时间 "createdAt"
+        "3913258",      //记录id
+        "1685881920",   //生效时间 
+        "btc.usdt",     //币对 
+        "47",           //成交笔数 
+        "603647.86",    //成交额 
+        "47",           //成交笔数 
+        "22.22",        //成交量 
+        "1min",         //period 
+        "27166.84",     //收盘价 
+        "27167.09",     //开盘价 
+        "27167.08",     //最高价 
+        "27166.83",     //最低价 
+        "1685882003",   //创建时间 
      ]
 }
 ```
