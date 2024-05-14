@@ -38,7 +38,7 @@
 
 <h3 id="1.3.1">1.3.1 请求头设置</h3>
 
-#### 1)、请求头信息中 contentType 需要统一设置为: 'application/json'
+#### 1)、请求头信息中 content-type 需要统一设置为: 'application/json'
 #### 2)、请求头信息中 添加 apikey
 
 <h3 id="1.3.2">1.3.2 请求参数</h3>
@@ -470,9 +470,6 @@ apisecret : 4598092df55fe84a4166d6828043621f
 #### 请求参数
 ```
 {
-    "account": "truedex.spot",           // 合约
-    "submitter": "v1x.buy1",             // 交易提交人(主账户或者代理账户)
-    "owner": "v1x.buy1",                 // 主账户
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
     "max_count": 10,                     // 最大数量
