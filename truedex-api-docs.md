@@ -25,7 +25,7 @@
 <h1 id="1">1 接入说明</h1>
 <h2 id="1.1">1.1 接入URL</h2>
 
-#### RESTAPI : https://truedex.io
+#### RESTAPI : https://truedex.io/spot
 #### Websocket : wss://push.truedex.io/socket.io
 
 <h2 id="1.2">1.2 风控规则</h2>
