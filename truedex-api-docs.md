@@ -422,10 +422,11 @@ apisecret : 4598092df55fe84a4166d6828043621f
 <h3 id="2.2.5">2.2.5 订单状态</h3>
 
 #### 请求地址 : POST /mm/dex/user/orderDetail
-#### 请求参数
+#### 请求参数 : orderId 或者 extId 二者选其一
 ```
 {
     "orderId": 10000000
+    "extId": 20230604010898690
 }
 ```
 
@@ -543,7 +544,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
 
 <h3 id="2.3.4">2.3.4 批量取消</h3>
 
-#### 请求地址 : POST /mm/dex/user/perp_batchcancel
+#### 请求地址 : POST /mm/dex/user/spot_batchcancel
 #### 请求参数
 ```
 {
@@ -551,7 +552,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "tpcode": "eth.usdt",                // 币对
     "type":"limit",                      // 市场类型(limit、market)
     "side":"buy",                        // 买卖方向(buy、sell)
-    "ids": [1234567,456780],             // 要取消的订单的id
+    "ids": [1234567,456780],             // 要取消的订单的ext_id
     "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
 }
 ```
