@@ -111,7 +111,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
         "list":[
                 {
                     "t":"eth.usdt",  // 币对
-                    "qs":"USDT,8",   // 行情币
+                    "qs":"USDT,6",   // 行情币
                     "bs":"ETH,8",    // 基础币
                     "ldp":"0.4",     // 最新成交价 
                     "ldqv":"null",   // 最新成交量     
