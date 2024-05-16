@@ -60,7 +60,7 @@
 ```
 apikey : ed54dfebb393ac90b9c891c2debb6b67
 apisecret : 4598092df55fe84a4166d6828043621f
-签名原串 : {"delegated":false,"max_count":10,"param":[{"base_quant":"0.20000000 ETH","ext_id":2,"price":"40.000000 USDT"}],"tpcode":"eth.usdt"}1683561600
+签名原串 : {"delegated":false,"max_count":30,"param":[{"base_quant":"0.20000000 ETH","ext_id":2,"price":"40.000000 USDT"}],"tpcode":"eth.usdt"}1683561600
 
 请求参数：
 {
@@ -68,7 +68,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
   "body":{
     "delegated": false,                  
     "tpcode": "eth.usdt",                
-    "max_count": 10,                     
+    "max_count": 30,                     
     "param": [
         {
           "ext_id": 2,                     
@@ -474,7 +474,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "max_count": 10,                     // 最大数量
+    "max_count": 30,                     // 最大数量
     "param": [
         {
           "ext_id": 2,                     // 调用方自定义id(需要保持唯一，调用方可以根据该id来对订单进行相应操作)
@@ -501,7 +501,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "max_count": 10,                     // 最大数量
+    "max_count": 30,                     // 最大数量
     "param": [
         {
           "ext_id": "2",                     // 调用方自定义id(需要保持唯一，调用方可以根据该id来对订单进行相应操作)
