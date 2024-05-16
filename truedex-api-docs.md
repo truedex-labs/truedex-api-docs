@@ -26,8 +26,8 @@
 <h1 id="1">1 接入说明</h1>
 <h2 id="1.1">1.1 接入URL</h2>
 
-#### RESTAPI : https://truedex.io/spot
-#### Websocket : wss://push.truedex.io/socket.io
+#### RESTAPI : ***
+#### Websocket : ***
 
 <h2 id="1.2">1.2 风控规则</h2>
 
@@ -574,8 +574,8 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "type":"limit",                // 市场类型(limit、market)
-    "side":"buy",                  // 买卖方向(buy、sell)
+    "type":"limit",                      // 市场类型(limit、market)
+    "side":"buy",                        // 买卖方向(buy、sell)
     "ids": [1234567,456780],             // 要取消的订单的order_id
     "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
 }
