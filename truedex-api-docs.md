@@ -551,8 +551,8 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "type":"limit",                      // 市场类型(limit、market)
-    "side":"buy",                        // 买卖方向(buy、sell)
+    "price_type":"limit",                // 市场类型(limit、market)
+    "order_type":"buy",                  // 买卖方向(buy、sell)
     "ids": [1234567,456780],             // 要取消的订单的ext_id
     "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
 }
@@ -574,8 +574,8 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "type":"limit",                      // 市场类型(limit、market)
-    "side":"buy",                        // 买卖方向(buy、sell)
+    "price_type":"limit",                // 市场类型(limit、market)
+    "order_type":"buy",                  // 买卖方向(buy、sell)
     "ids": [1234567,456780],             // 要取消的订单的order_id
     "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
 }
