@@ -15,7 +15,8 @@
     * [批量买入](#2.3.1)
     * [批量卖出](#2.3.2)
     * [订单取消](#2.3.3)
-    * [批量取消](#2.3.4)
+    * [批量取消(根据ext_id)](#2.3.4)
+    * [批量取消(根据order_id)](#2.3.5)
     
   * [推送](#2.4)
     * [公共推送](#2.4.1)
@@ -25,8 +26,8 @@
 <h1 id="1">1 接入说明</h1>
 <h2 id="1.1">1.1 接入URL</h2>
 
-#### RESTAPI : https://truedex.io
-#### Websocket : wss://push.truedex.io/socket.io
+#### RESTAPI : ***
+#### Websocket : ***
 
 <h2 id="1.2">1.2 风控规则</h2>
 
@@ -34,7 +35,7 @@
 
 <h2 id="1.3">1.3 签名认证</h2>
 
-#### 除公共接口（基础数据，行情数据）外的账户、交易相关的接口均必须使用您的 apisecret 做签名认证
+#### 除公共接口（基础数据）外的账户、交易相关的接口均必须使用您的 apisecret 做签名认证
 
 <h3 id="1.3.1">1.3.1 请求头设置</h3>
 
@@ -43,7 +44,7 @@
 
 <h3 id="1.3.2">1.3.2 请求参数</h3>
 
-#### 1)、请求参数统一格式如下
+#### 1)、请求参数统一格式如下(基础数据接口除外)
 ```
 {
   "sign":""         //签名信息
@@ -59,7 +60,7 @@
 ```
 apikey : ed54dfebb393ac90b9c891c2debb6b67
 apisecret : 4598092df55fe84a4166d6828043621f
-签名原串 : {"delegated":false,"max_count":10,"param":[{"base_quant":"0.20000000 ETH","ext_id":"2","price":"40.000000 USDT"}],"tpcode":"eth.usdt"}1683561600
+签名原串 : {"delegated":false,"max_count":30,"param":[{"base_quant":"0.20000000 ETH","ext_id":2,"price":"40.000000 USDT"}],"tpcode":"eth.usdt"}1683561600
 
 请求参数：
 {
@@ -67,7 +68,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
   "body":{
     "delegated": false,                  
     "tpcode": "eth.usdt",                
-    "max_count": 10,                     
+    "max_count": 30,                     
     "param": [
         {
           "ext_id": 2,                     
@@ -111,7 +112,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
         "list":[
                 {
                     "t":"eth.usdt",  // 币对
-                    "qs":"USDT,8",   // 行情币
+                    "qs":"USDT,6",   // 行情币
                     "bs":"ETH,8",    // 基础币
                     "ldp":"0.4",     // 最新成交价 
                     "ldqv":"null",   // 最新成交量     
@@ -287,7 +288,7 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "tradeCode": "eth.usdt",
     "size": 100,       //最大100
-    "offset": 1300     //已经获取获取到的最大订单id
+    "offset": 1300     //已经获取获取到的最小订单id
 }
 ```
 
@@ -422,10 +423,11 @@ apisecret : 4598092df55fe84a4166d6828043621f
 <h3 id="2.2.5">2.2.5 订单状态</h3>
 
 #### 请求地址 : POST /mm/dex/user/orderDetail
-#### 请求参数
+#### 请求参数 : orderId 或者 extId 二者选其一
 ```
 {
     "orderId": 10000000
+    "extId": 20230604010898690
 }
 ```
 
@@ -472,10 +474,10 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "max_count": 10,                     // 最大数量
+    "max_count": 30,                     // 最大数量
     "param": [
         {
-          "ext_id": 2,                     // 自定义id
+          "ext_id": 2,                     // 调用方自定义id(需要保持唯一，调用方可以根据该id来对订单进行相应操作)
           "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
           "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
         }
@@ -499,10 +501,10 @@ apisecret : 4598092df55fe84a4166d6828043621f
 {
     "delegated": false,                  // 是否代理交易
     "tpcode": "eth.usdt",                // 币对
-    "max_count": 10,                     // 最大数量
+    "max_count": 30,                     // 最大数量
     "param": [
         {
-          "ext_id": 2,                     // 自定义id
+          "ext_id": "2",                     // 调用方自定义id(需要保持唯一，调用方可以根据该id来对订单进行相应操作)
           "base_quant": "0.20000000 ETH",  // 购买数量(需要按照币对精度来设置, 币的精度可以参考币对列表接口)
           "price": "40.000000 USDT"        // 购买价格(需要按照币对精度来设置, USDT 需要设置成6位小数)
         }
@@ -541,9 +543,9 @@ apisecret : 4598092df55fe84a4166d6828043621f
 }
 ```
 
-<h3 id="2.3.4">2.3.4 批量取消</h3>
+<h3 id="2.3.4">2.3.4 批量取消(根据ext_id)</h3>
 
-#### 请求地址 : POST /mm/dex/user/perp_batchcancel
+#### 请求地址 : POST /mm/dex/user/spot_batchcancelx
 #### 请求参数
 ```
 {
@@ -551,7 +553,30 @@ apisecret : 4598092df55fe84a4166d6828043621f
     "tpcode": "eth.usdt",                // 币对
     "type":"limit",                      // 市场类型(limit、market)
     "side":"buy",                        // 买卖方向(buy、sell)
-    "ids": [1234567,456780],             // 要取消的订单的id
+    "ids": [1234567,456780],             // 要取消的订单的ext_id
+    "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
+}
+```
+#### 响应参数
+```
+{
+    "code":200,                           // 200: 提交成功，非200表示提交异常，异常信息参考msg 内容
+    "msg":"success",
+    "data":"20830b1f62104c2255cb829a5c64a05f864a10847684794ba69240ad56df889a"
+}
+```
+
+<h3 id="2.3.5">2.3.5 批量取消(根据orderId)</h3>
+
+#### 请求地址 : POST /mm/dex/user/spot_batchcancel
+#### 请求参数
+```
+{
+    "delegated": false,                  // 是否代理交易
+    "tpcode": "eth.usdt",                // 币对
+    "type":"limit",                      // 市场类型(limit、market)
+    "side":"buy",                        // 买卖方向(buy、sell)
+    "ids": [1234567,456780],             // 要取消的订单的order_id
     "memo": ""                           // 毫秒级时间戳(避免每次提交交易参数一致)
 }
 ```
